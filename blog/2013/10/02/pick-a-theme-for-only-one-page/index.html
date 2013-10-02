@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>pick a theme for only one page - Octostrap3 demo</title>
+  <meta name="author" content="kAworu">
+
+  
+  <meta name="description" content="The magic will only happen when you read the post :) jQuery(document).ready(function ($) { $('[data-hide-me="one-page-theme-pick"]').hide(); }); As &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kAworu.github.io/octopress/blog/2013/10/02/pick-a-theme-for-only-one-page">
+  <link href="/octopress/favicon.png" type="image/png" rel="icon">
+  <link href="/octopress/atom.xml" rel="alternate" title="Octostrap3 demo" type="application/atom+xml">
+
+  
+  <link href="http://bootswatch.com/flatly/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+<!-- <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"> -->
+<link href="/octopress/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+  <script src="/octopress/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  
+
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        <a style="z-index: 1001" href="https://github.com/kAworu/octostrap3.git"><img style="z-index: 1001; position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/octopress/">Octostrap3 demo</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/octopress/">Blog</a>
+                </li>
+                <li >
+                    <a href="/octopress/blog/archives">Archives</a>
+                </li>
+                <li >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setup <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="/octopress/setup/install">Installation</a>
+                        <a href="/octopress/setup/octopatch">Plugins integration</a>
+                        <a href="/octopress/setup/pick-a-theme">Pick a theme</a>
+                      </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/octopress/atom.xml" title="subscribe via RSS">
+                        <img src="/octopress/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:kAworu.github.io/octopress">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="Search">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div class="col-md-9">
+    <article class="hentry" role="article">
+      
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-02T23:19:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://kAworu.github.io/octopress">Comments</a>
+        
+      </p>
+    
+    
+    <h1 class="entry-title">
+        Pick a Theme for Only One Page
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content"><div data-hide-me="one-page-theme-pick" class="alert alert-info">
+    <p>
+      The magic will only happen when you read the post :)
+    </p>
+</div>
+
+
+
+
+<!-- more -->
+
+
+<script>
+    jQuery(document).ready(function ($) {
+        $('[data-hide-me="one-page-theme-pick"]').hide();
+    });
+</script>
+
+
+<p>As you can see on this page, it is possible to have a different theme for a
+given page or post (this one is the mighty
+<a href="http://bootswatch.com/flatly/bootstrap.min.css">flatty</a>) !</p>
+
+<h2>The Trick</h2>
+
+
+<p>We will use a <a href="http://jekyllrb.com/docs/frontmatter/">front-matter variable</a> to
+select the theme to use. First, adapt <code>source/_includes/custom/head.html</code>:</p>
+
+<figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'>source/_includes/custom/head.html </h3></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>{% if page.bootstrap_theme_url %}
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ page.bootstrap_theme_url }}&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>{% else %}
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>{% endif %}
+</span><span class='line'><span class="c">&lt;!-- &lt;link href=&quot;{{ root_url }}/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt; --&gt;</span>
+</span><span class='line'><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/stylesheets/screen.css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen, projection&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, the Bootstrap theme will be choosen depending on
+<code>page.bootstrap_theme_url</code>. As an example, here is the front of this page:</p>
+
+<figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'>example front </h3></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>---
+</span><span class='line'>layout: post
+</span><span class='line'>bootstrap_theme_url: http://bootswatch.com/flatly/bootstrap.min.css
+</span><span class='line'>title: "pick a theme for only one page"
+</span><span class='line'>comments: true
+</span><span class='line'>categories: octopress
+</span><span class='line'>---</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="byline author vcard">Posted by <span class="fn">kAworu</span></span>
+
+          
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-02T23:19:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
+          
+
+<span class="categories">
+  
+    <a class='category label label-primary' href='/octopress/blog/categories/octopress/'>octopress</a>
+  
+</span>
+
+
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="/octopress//twitter.com/share" class="twitter-share-button" data-url="http://kAworu.github.io/octopress/blog/2013/10/02/pick-a-theme-for-only-one-page/" data-via="" data-counturl="http://kAworu.github.io/octopress/blog/2013/10/02/pick-a-theme-for-only-one-page/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+        
+        
+          <ul class="meta text-muted pager">
+            
+            
+            <li class="next"><a href="/octopress/blog/2013/10/02/selecting-the-navbar-menu/" title="Next Post: selecting the navbar menu">selecting the navbar menu &raquo;</a></li>
+            
+          </ul>
+        
+      </footer>
+    </article>
+    
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
+    
+  </div>
+
+  
+  <aside class="sidebar col-md-3">
+    
+      <section class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Recent Posts</h3>
+  </div>
+  
+  <div id="recent_posts" class="list-group">
+    
+    <a class="list-group-item " href="/octopress/blog/2013/10/02/selecting-the-navbar-menu/">Selecting the Navbar Menu</a>
+    
+    <a class="list-group-item active" href="/octopress/blog/2013/10/02/pick-a-theme-for-only-one-page/">Pick a Theme for Only One Page</a>
+    
+  </div>
+</section>
+
+    
+  </aside>
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2013 - kAworu<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
+  </small>
+</p>
+
+</div>
+</footer>
+    <script src="/octopress/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+<script src="/octopress/javascripts/modernizr-2.0.js"></script>
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'octostrap3';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://kAworu.github.io/octopress/blog/2013/10/02/pick-a-theme-for-only-one-page/';
+        var disqus_url = 'http://kAworu.github.io/octopress/blog/2013/10/02/pick-a-theme-for-only-one-page/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+  </body>
+</html>

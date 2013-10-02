@@ -1,55 +1,69 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>
+            http://kAworu.github.io/octopress/blog/2013/10/02/pick-a-theme-for-only-one-page/
+        </loc>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kAworu.github.io/octopress/blog/2013/10/02/selecting-the-navbar-menu/</loc>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
+    </url>
+    <url>
         <loc>http://kAworu.github.io/octopress/</loc>
-        <lastmod>2013-10-02T21:38:35+02:00</lastmod>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
     </url>
     <url>
         <loc>http://kAworu.github.io/octopress/blog/archives/</loc>
-        <lastmod>2013-10-02T21:38:35+02:00</lastmod>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
     </url>
     <url>
         <loc>http://kAworu.github.io/octopress/setup/install/</loc>
-        <lastmod>2013-10-02T21:38:35+02:00</lastmod>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
     </url>
     <url>
         <loc>http://kAworu.github.io/octopress/setup/octopatch/</loc>
-        <lastmod>2013-10-02T22:22:00+02:00</lastmod>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://kAworu.github.io/octopress/setup/pick-a-theme/</loc>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://kAworu.github.io/octopress/javascripts/libs/bootstrap-3.0.0/customize.html
         </loc>
-        <lastmod>2013-10-02T21:38:35+02:00</lastmod>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://kAworu.github.io/octopress/javascripts/libs/bootstrap-3.0.0/javascript.html
         </loc>
-        <lastmod>2013-10-02T21:38:35+02:00</lastmod>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
     </url>
     <url>
         <loc>http://kAworu.github.io/octopress/javascripts/libs/bootstrap-3.0.0/</loc>
-        <lastmod>2013-10-02T21:38:35+02:00</lastmod>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
     </url>
     <url>
         <loc>http://kAworu.github.io/octopress/javascripts/libs/bootstrap-3.0.0/css.html</loc>
-        <lastmod>2013-10-02T21:38:35+02:00</lastmod>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://kAworu.github.io/octopress/javascripts/libs/bootstrap-3.0.0/getting-started.html
         </loc>
-        <lastmod>2013-10-02T21:38:35+02:00</lastmod>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
     </url>
     <url>
         <loc>
             http://kAworu.github.io/octopress/javascripts/libs/bootstrap-3.0.0/components.html
         </loc>
-        <lastmod>2013-10-02T21:38:35+02:00</lastmod>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
     </url>
     <url>
         <loc>http://kAworu.github.io/octopress/robots.txt</loc>
-        <lastmod>2013-10-02T21:38:35+02:00</lastmod>
+        <lastmod>2013-10-03T00:06:39+02:00</lastmod>
     </url>
 </urlset>
