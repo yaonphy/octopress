@@ -4,11 +4,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - Octostrap3 demo</title>
+  <title>Installation - Octostrap3 demo</title>
   <meta name="author" content="kAworu">
 
   
-  <meta name="description" content=" ">
+  <meta name="description" content="You can install Octostrap like any other Octopress theme. Here is how to do it in a few steps: Octopress Installation If you have not installed &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://kAworu.github.io/octopress/blog/archives">
+  <link rel="canonical" href="http://kAworu.github.io/octopress/setup/install">
   <link href="/octopress/favicon.png" type="image/png" rel="icon">
   <link href="/octopress/atom.xml" rel="alternate" title="Octostrap3 demo" type="application/atom+xml">
 
@@ -50,10 +50,10 @@
                 <li >
                     <a href="/octopress/">Blog</a>
                 </li>
-                <li class="active">
+                <li >
                     <a href="/octopress/blog/archives">Archives</a>
                 </li>
-                <li >
+                <li class="active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setup <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                       <li>
@@ -93,22 +93,103 @@
       
         <header class="page-header">
           
+            <p class="meta text-muted text-uppercase">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-02T19:51:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time></p>
+          
           
             <h1 class="entry-title">
-              Blog Archive
+              Installation
               
             </h1>
           
         </header>
       
       <div class="entry-content">
-        <div id="blog-archives">
+        <p>You can install <strong>Octostrap</strong> like any other Octopress theme. Here is how to do it in a few steps:</p>
 
-</div>
+<h2>Octopress Installation</h2>
+
+
+<p>If you have not installed Octopress yet, check the
+<a href="http://octopress.org/docs/setup/">setup page</a>. For a quick test (and this
+example) you can just clone the
+<a href="https://github.com/imathis/octopress">GitHub repository</a>:</p>
+
+<pre><code>% git clone https://github.com/imathis/octopress.git
+</code></pre>
+
+<h2>Theme installation</h2>
+
+
+<p>Installing is straightforward, just clone the them and run <code>rake install</code>:</p>
+
+<pre><code>% cd octopress/.themes
+% git clone https://github.com/kAworu/octostrap3.git .themes/octostrap3
+% rake "install[octostrap3]"
+</code></pre>
+
+<p>And that&rsquo;s it ! You can start blogging if the default theme suits you or
+continue this setup guid for more awesome customizations :)</p>
+
+<ul class="pager">
+    <li class="next"><a href="/octopress/setup/octopatch">make Octopress plugins output Bootstrap classes &raquo;</a></li>
+</ul>
+
 
       </div>
       
+        <footer>
+          <p class="meta text-muted">
+            
+            
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-02T19:51:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
+            
+          </p>
+          
+            <div class="sharing">
+  
+  <a href="/octopress//twitter.com/share" class="twitter-share-button" data-url="http://kAworu.github.io/octopress/setup/install/index.html" data-via="" data-counturl="http://kAworu.github.io/octopress/setup/install/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+          
+        </footer>
+      
     </article>
+    
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
     
   </div>
 
@@ -137,7 +218,10 @@
       var disqus_shortname = 'octostrap3';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://kAworu.github.io/octopress/setup/install/index.html';
+        var disqus_url = 'http://kAworu.github.io/octopress/setup/install/index.html';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

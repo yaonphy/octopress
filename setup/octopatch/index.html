@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Patching Octopress plugins - Octostrap3 demo</title>
+  <meta name="author" content="kAworu">
+
+  
+  <meta name="description" content="Attention ! Patching plugins can make upgrades difficult (if you want to to upgrade Octopress at all). It is not required and you can skip this step &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kAworu.github.io/octopress/setup/octopatch">
+  <link href="/octopress/favicon.png" type="image/png" rel="icon">
+  <link href="/octopress/atom.xml" rel="alternate" title="Octostrap3 demo" type="application/atom+xml">
+
+  <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<!-- <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"> -->
+<link href="/octopress/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+  <script src="/octopress/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
+  
+
+</head>
+
+  <body   >
+    <div id="wrap">
+      <header role="banner">
+        <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/octopress/">Octostrap3 demo</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li >
+                    <a href="/octopress/">Blog</a>
+                </li>
+                <li >
+                    <a href="/octopress/blog/archives">Archives</a>
+                </li>
+                <li class="active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setup <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="/octopress/setup/install">Installation</a>
+                        <a href="/octopress/setup/octopatch">Plugins integration</a>
+                      </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="subscribe-rss" href="/octopress/atom.xml" title="subscribe via RSS">
+                        <img src="/octopress/images/rss.png" alt="RSS">
+                    </a>
+                </li>
+                
+            </ul>
+            
+                <form class="search navbar-form navbar-right" action="http://google.com/search" method="GET">
+                    <input type="hidden" name="q" value="site:kAworu.github.io/octopress">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="q" placeholder="Search">
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</nav>
+
+
+      </header>
+      <div id="main" class="container">
+        <div id="content">
+          <div class="row">
+  <div >
+    <article role="article">
+      
+        <header class="page-header">
+          
+            <p class="meta text-muted text-uppercase">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-02T23:01:22+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time></p>
+          
+          
+            <h1 class="entry-title">
+              Patching Octopress Plugins
+              
+            </h1>
+          
+        </header>
+      
+      <div class="entry-content">
+        <div class="alert alert-warning">
+    <span class="glyphicon glyphicon-warning-sign"></span>
+    <strong>Attention !</strong><br>
+    <ol>
+      <li>
+        Patching plugins can make upgrades difficult (if you want to to upgrade
+        Octopress at all). It is not required and you can skip this step and go
+        straight to
+        <a href="/octopress/setup/install/pick-a-theme">the next part of this guide</a>.
+      <li>
+        If you don&#8217;t know how <strong>diff(1)</strong> and
+        <strong>patch(1)</strong> works, it is probably better that you avoid
+        patching at all.
+    </ol>
+</div>
+
+
+
+
+<h2>Introduction</h2>
+
+
+<p>There are a few parts where we can improve Bootstrap&rsquo;s integration into
+Octopress. I wish there was another way than patching the plugins, but it is
+the only way as long as they output markup and don&rsquo;t delegate formatting to the
+theme.</p>
+
+<div class="alert alert-info">
+    <p>
+      <span class="glyphicon glyphicon-info-sign"></span>
+      Theses patches were tested against the latest version of Octopress
+      master&#8217;s branch at the time of writting:
+      commit <strong>4cc76820331b2b327c03d27216e79bc55a58c505</strong>
+    </p>
+</div>
+
+
+
+
+<h2>Use Bootstrap&#8217;s panels for code</h2>
+
+
+<p>Both the <code>codeblock</code> and <code>include_code</code> liquid tags have been styled in this
+theme so their header looks a lot like Bootstrap&rsquo;s
+<a href="http://getbootstrap.com/components/#panels">panels</a>. However, they don&rsquo;t
+actually output Bootstrap&rsquo;s classes. The default is fine as long as you&rsquo;re not
+going to change of Bootstrap theme. Here are the two versions (check the
+markup):</p>
+
+<p>not patched:</p>
+
+<figure class="code"><figcaption><span>fancy title </span></figcaption><div class="highlight"><table><tbody><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span></pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="nb">print</span> <span class="s2">"Hello World !"</span> <span class="p">}</span>
+</span></code></pre></td></tr></tbody></table></div></figure>
+
+
+<p>patched:</p>
+
+<figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'>fancy title </h3></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="p">{</span> <span class="nb">print</span> <span class="s2">&quot;Hello World !&quot;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you want to use another boostrap theme than the default theme, it would be
+better to have theses plugins output the Bootstrap&rsquo;s <code>panel</code> classes so they
+can be style by your theme.  Here are two patches, the first is for the
+<code>code_block</code> plugin and the second for the <code>include_code</code> plugin.</p>
+
+<figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'> (code-block-with-bs-panel.patch)</h3> <a href='/octopress/downloads/code/code-block-with-bs-panel.patch'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="gh">diff --git a/plugins/code_block.rb b/plugins/code_block.rb</span>
+</span><span class='line'><span class="gh">index c70e181..29ad53a 100644</span>
+</span><span class='line'><span class="gd">--- a/plugins/code_block.rb</span>
+</span><span class='line'><span class="gi">+++ b/plugins/code_block.rb</span>
+</span><span class='line'><span class="gu">@@ -62,10 +62,10 @@ module Jekyll</span>
+</span><span class='line'>       end
+</span><span class='line'>       if markup =~ CaptionUrlTitle
+</span><span class='line'>         @file = $1
+</span><span class='line'><span class="gd">-        @caption = &quot;&lt;figcaption&gt;&lt;span&gt;#{$1}&lt;/span&gt;&lt;a href=&#39;#{$2}&#39;&gt;#{$3 || &#39;link&#39;}&lt;/a&gt;&lt;/figcaption&gt;&quot;</span>
+</span><span class='line'><span class="gi">+        @caption = &quot;&lt;figcaption class=&#39;panel-heading&#39;&gt;&lt;h3 class=&#39;panel-title&#39;&gt;#{$1}&lt;/h3&gt;&lt;a href=&#39;#{$2}&#39;&gt;#{$3 || &#39;link&#39;}&lt;/a&gt;&lt;/figcaption&gt;&quot;</span>
+</span><span class='line'>       elsif markup =~ Caption
+</span><span class='line'>         @file = $1
+</span><span class='line'><span class="gd">-        @caption = &quot;&lt;figcaption&gt;&lt;span&gt;#{$1}&lt;/span&gt;&lt;/figcaption&gt;\n&quot;</span>
+</span><span class='line'><span class="gi">+        @caption = &quot;&lt;figcaption class=&#39;panel-heading&#39;&gt;&lt;h3 class=&#39;panel-title&#39;&gt;#{$1}&lt;/h3&gt;&lt;/figcaption&gt;\n&quot;</span>
+</span><span class='line'>       end
+</span><span class='line'>       if @file =~ /\S[\S\s]*\w+\.(\w+)/ &amp;&amp; @filetype.nil?
+</span><span class='line'>         @filetype = $1
+</span><span class='line'><span class="gu">@@ -76,7 +76,7 @@ module Jekyll</span>
+</span><span class='line'>     def render(context)
+</span><span class='line'>       output = super
+</span><span class='line'>       code = super
+</span><span class='line'><span class="gd">-      source = &quot;&lt;figure class=&#39;code&#39;&gt;&quot;</span>
+</span><span class='line'><span class="gi">+      source = &quot;&lt;figure class=&#39;code panel panel-default&#39;&gt;&quot;</span>
+</span><span class='line'>       source += @caption if @caption
+</span><span class='line'>       if @filetype
+</span><span class='line'>         source += &quot; #{highlight(code, @filetype)}&lt;/figure&gt;&quot;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'> (include-code-with-bs-panel.patch)</h3> <a href='/octopress/downloads/code/include-code-with-bs-panel.patch'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="gh">diff --git a/plugins/include_code.rb b/plugins/include_code.rb</span>
+</span><span class='line'><span class="gh">index 220466b..cea125a 100644</span>
+</span><span class='line'><span class="gd">--- a/plugins/include_code.rb</span>
+</span><span class='line'><span class="gi">+++ b/plugins/include_code.rb</span>
+</span><span class='line'><span class="gu">@@ -61,7 +61,7 @@ module Jekyll</span>
+</span><span class='line'>         @filetype = file.extname.sub(&#39;.&#39;,&#39;&#39;) if @filetype.nil?
+</span><span class='line'>         title = @title ? &quot;#{@title} (#{file.basename})&quot; : file.basename
+</span><span class='line'>         url = &quot;/#{code_dir}/#{@file}&quot;
+</span><span class='line'><span class="gd">-        source = &quot;&lt;figure class=&#39;code&#39;&gt;&lt;figcaption&gt;&lt;span&gt;#{title}&lt;/span&gt; &lt;a href=&#39;#{url}&#39;&gt;download&lt;/a&gt;&lt;/figcaption&gt;\n&quot;</span>
+</span><span class='line'><span class="gi">+        source = &quot;&lt;figure class=&#39;code panel panel-default&#39;&gt;&lt;figcaption class=&#39;panel-heading&#39;&gt;&lt;h3 class=&#39;panel-title&#39;&gt;#{title}&lt;/h3&gt; &lt;a href=&#39;#{url}&#39;&gt;download&lt;/a&gt;&lt;/figcaption&gt;\n&quot;</span>
+</span><span class='line'>         source += &quot; #{highlight(code, @filetype)}&lt;/figure&gt;&quot;
+</span><span class='line'>         safe_wrap(source)
+</span><span class='line'>       end
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<h2>Use Bootstrap&#8217;s labels for categories</h2>
+
+
+<p>This patch will improve how categories are displayed (at the end of a post and
+in the Archives page). By default, Octopress output the categories as a list of
+links separated by commas, for example:</p>
+
+<p><a href="#">fruits</a>,
+<a href="#">vegetables</a>,
+<a href="#">mushrooms</a></p>
+
+<p>One of Bootstrap&rsquo;s components are
+<a href="http://getbootstrap.com/components/#labels">labels</a> and they&rsquo;re perfect for
+the job. The patch will turn them into this:</p>
+
+<p><span class="label label-primary">fruits</span>
+<span class="label label-primary">vegetables</span>
+<span class="label label-primary">mushrooms</span></p>
+
+<p>And here it is:</p>
+
+<figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'> (category-with-bs-label.patch)</h3> <a href='/octopress/downloads/code/category-with-bs-label.patch'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="gh">diff --git a/plugins/category_generator.rb b/plugins/category_generator.rb</span>
+</span><span class='line'><span class="gh">index a49c429..2028919 100644</span>
+</span><span class='line'><span class="gd">--- a/plugins/category_generator.rb</span>
+</span><span class='line'><span class="gi">+++ b/plugins/category_generator.rb</span>
+</span><span class='line'><span class="gu">@@ -161,7 +161,7 @@ ERR</span>
+</span><span class='line'>       when 1
+</span><span class='line'>         categories[0].to_s
+</span><span class='line'>       else
+</span><span class='line'><span class="gd">-        &quot;#{categories[0...-1].join(&#39;, &#39;)}, #{categories[-1]}&quot;</span>
+</span><span class='line'><span class="gi">+        &quot;#{categories[0...-1].join(&#39; &#39;)} #{categories[-1]}&quot;</span>
+</span><span class='line'>       end
+</span><span class='line'>     end
+</span><span class='line'>
+</span><span class='line'><span class="gu">@@ -173,7 +173,7 @@ ERR</span>
+</span><span class='line'>     #
+</span><span class='line'>     def category_link(category)
+</span><span class='line'>       dir = @context.registers[:site].config[&#39;category_dir&#39;]
+</span><span class='line'><span class="gd">-      &quot;&lt;a class=&#39;category&#39; href=&#39;/#{dir}/#{category.to_url}/&#39;&gt;#{category}&lt;/a&gt;&quot;</span>
+</span><span class='line'><span class="gi">+      &quot;&lt;a class=&#39;category label label-primary&#39; href=&#39;/#{dir}/#{category.to_url}/&#39;&gt;#{category}&lt;/a&gt;&quot;</span>
+</span><span class='line'>     end
+</span><span class='line'>
+</span><span class='line'>     # Outputs the post.date as formatted html, with hooks for CSS styling.
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<ul class="pager">
+    <li class="previous"><a href="/octopress/setup/install">&laquo; Installation</a></li>
+    <li class="next"><a href="/octopress/setup/pick-a-theme">Pick a Bootstrap theme &raquo;</a></li>
+</ul>
+
+
+      </div>
+      
+        <footer>
+          <p class="meta text-muted">
+            
+            
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-02T23:01:22+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
+            
+          </p>
+          
+            <div class="sharing">
+  
+  <a href="/octopress//twitter.com/share" class="twitter-share-button" data-url="http://kAworu.github.io/octopress/setup/octopatch/index.html" data-via="" data-counturl="http://kAworu.github.io/octopress/setup/octopatch/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+          
+        </footer>
+      
+    </article>
+    
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
+    
+  </div>
+
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+    <footer role="contentinfo"><div class="container">
+    <p class="text-muted credits">
+  Copyright &copy; 2013 - kAworu<br>
+  <small>
+      <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
+      <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
+  </small>
+</p>
+
+</div>
+</footer>
+    <script src="/octopress/javascripts/libs/bootstrap-3.0.0/dist/js/bootstrap.min.js"></script>
+<script src="/octopress/javascripts/modernizr-2.0.js"></script>
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'octostrap3';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://kAworu.github.io/octopress/setup/octopatch/index.html';
+        var disqus_url = 'http://kAworu.github.io/octopress/setup/octopatch/index.html';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+  </body>
+</html>

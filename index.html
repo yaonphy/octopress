@@ -4,11 +4,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>Octostrap3 demo</title>
+  <meta name="author" content="kAworu">
 
   
-  <meta name="description" content=" &larr;&nbsp;Older Blog Archives Newer&nbsp;&rarr; Recent Posts ">
+  <meta name="description" content="&larr;&nbsp;Older Blog Archives Newer&nbsp;&rarr; What is Octostrap3 ? Octostrap3 is a Bootstrap 3 theme for Octopress. Its goal is to provide an &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,11 +19,11 @@
   
   <link rel="canonical" href="http://kAworu.github.io/octopress">
   <link href="/octopress/favicon.png" type="image/png" rel="icon">
-  <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="/octopress/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/octopress/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/octopress/atom.xml" rel="alternate" title="Octostrap3 demo" type="application/atom+xml">
 
-  <!-- <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"> -->
+  <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<!-- <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"> -->
+<link href="/octopress/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
 
   <script src="/octopress/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
@@ -42,7 +42,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/octopress/">My Octopress Blog</a>
+            <a class="navbar-brand" href="/octopress/">Octostrap3 demo</a>
         </div>
 
         <div class="navbar-collapse collapse">
@@ -52,6 +52,15 @@
                 </li>
                 <li >
                     <a href="/octopress/blog/archives">Archives</a>
+                </li>
+                <li >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setup <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="/octopress/setup/install">Installation</a>
+                        <a href="/octopress/setup/octopatch">Plugins integration</a>
+                      </li>
+                    </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -99,7 +108,25 @@
   
     <aside class="sidebar col-md-3">
       
-        <section class="panel panel-default">
+        <section class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      What is Octostrap3 ?
+      <span class="pull-right glyphicon glyphicon-info-sign"></span> 
+    </h3>
+  </div>
+  <div class="panel-body">
+      <strong>Octostrap3 is a
+      <a href="http://getbootstrap.com/">Bootstrap 3</a> theme for
+      <a href="http://octopress.org">Octopress</a>.</strong><br>
+      <p>
+        Its goal is to provide an easy way to use themes created for Bootstrap
+        with Octopress.
+      </p>
+      <a class="pull-right btn btn-primary" href="/octopress/setup/install">get started →</a>
+  </div>
+</section>
+<section class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Recent Posts</h3>
   </div>
@@ -108,11 +135,6 @@
     
   </div>
 </section>
-
-
-
-
-
 
       
     </aside>
@@ -124,7 +146,7 @@
     </div>
     <footer role="contentinfo"><div class="container">
     <p class="text-muted credits">
-  Copyright &copy; 2013 - Your Name<br>
+  Copyright &copy; 2013 - kAworu<br>
   <small>
       <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
       <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
@@ -137,9 +159,39 @@
 <script src="/octopress/javascripts/modernizr-2.0.js"></script>
 
 
+<script type="text/javascript">
+      var disqus_shortname = 'octostrap3';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
 
 
 
