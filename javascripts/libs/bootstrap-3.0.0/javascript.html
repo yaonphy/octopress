@@ -36,7 +36,9 @@
   <body   >
     <div id="wrap">
       <header role="banner">
-        <a style="z-index: 1001" href="https://github.com/kAworu/octostrap3.git"><img style="z-index: 1001; position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+        <a id="fork-me-on-github" href="https://github.com/kAworu/octostrap3.git">
+  <img class="gh-ribbon" src="/octopress/images/forkme_right_blue_3276b1.png" alt="Fork me on GitHub">
+</a>
 
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
@@ -71,7 +73,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a class="subscribe-rss" href="/octopress/atom.xml" title="subscribe via RSS">
-                        <img src="/octopress/images/rss.png" alt="RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/octopress/images/rss.png" alt="RSS">
                     </a>
                 </li>
                 
@@ -2120,7 +2123,7 @@ $('#myTab li:eq(2) a').tab('show') // Select third tab (0-indexed)</code></pre>
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>

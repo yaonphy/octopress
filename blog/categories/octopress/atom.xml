@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Octostrap3 demo]]></title>
   <link href="http://kAworu.github.io/octopress/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://kAworu.github.io/octopress/"/>
-  <updated>2013-10-03T00:35:37+02:00</updated>
+  <updated>2013-10-03T23:37:57+02:00</updated>
   <id>http://kAworu.github.io/octopress/</id>
   <author>
     <name><![CDATA[kAworu]]></name>
@@ -12,6 +12,126 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[category list aside]]></title>
+    <link href="http://kAworu.github.io/octopress/blog/2013/10/03/category-list-aside/"/>
+    <updated>2013-10-03T23:27:00+02:00</updated>
+    <id>http://kAworu.github.io/octopress/blog/2013/10/03/category-list-aside</id>
+    <content type="html"><![CDATA[<p>Here is the code for the awesome category list you can side in the <code>aside</code>.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'> (category_list.html)</h3> <a href='/downloads/code/category_list.html'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">&quot;panel-title&quot;</span><span class="nt">&gt;</span>Categories<span class="nt">&lt;/h3&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;list-group&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">category</span> <span class="k">in</span> <span class="nv">site.categories</span> <span class="cp">%}</span>
+</span><span class='line'>    <span class="cp">{%</span> <span class="k">capture</span> <span class="nv">category_url</span> <span class="cp">%}{{</span> <span class="nv">site.category_dir</span> <span class="cp">}}</span>/<span class="cp">{{</span> <span class="nv">category</span> <span class="o">|</span> <span class="nf">first</span> <span class="o">|</span> <span class="nf">slugize</span> <span class="o">|</span> <span class="nf">downcase</span> <span class="o">|</span> <span class="nf">replace</span><span class="s1">:&#39; &#39;</span><span class="o">,</span><span class="s1">&#39;-&#39;</span> <span class="o">|</span> <span class="nf">append</span><span class="s1">:&#39;/index.html&#39;</span><span class="cp">}}{%</span> <span class="k">endcapture</span> <span class="cp">%}</span>
+</span><span class='line'>    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;list-group-item </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">category_url</span> <span class="o">==</span> <span class="nv">page.url</span> <span class="cp">%}</span><span class="s">active</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="s">&quot;</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">root_url</span> <span class="o">|</span> <span class="nf">append</span><span class="s1">:&#39;/&#39;</span> <span class="o">|</span> <span class="nf">append</span><span class="o">:</span><span class="nv">category_url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;badge&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">category</span> <span class="o">|</span> <span class="nf">last</span> <span class="o">|</span> <span class="nf">size</span> <span class="cp">}}</span><span class="nt">&lt;/span&gt;</span>
+</span><span class='line'>        <span class="cp">{{</span> <span class="nv">category</span> <span class="o">|</span> <span class="nf">first</span> <span class="cp">}}</span>
+</span><span class='line'>      <span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/section&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Put it in the <code>source/_includes/asides</code> directory and then adapt your
+<code>_config.yml</code> accordingly. As example, here is how it is done on this site:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'>_config.yml </h3></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;h1&gt;&amp;hellip;&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;h1&gt;list each of the sidebar modules you want to include, in the order you want them to appear.&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;h1&gt;To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like &amp;lsquo;custom/asides/custom_aside_name.html&amp;rsquo;&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;p&gt;default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;asides/recent_posts.html</span><span class="p-Indicator">,</span>
+</span><span class='line'><span class="nv">asides/category_list.html</span>
+</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span><span class="p-Indicator">]</span><span class="l-Scalar-Plain">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;h1&gt;Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;h1&gt;and add an array with the asides you want to use.&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;p&gt;blog_index_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;pre&gt;&lt;code&gt;asides/what_is_octostrap3.html</span><span class="p-Indicator">,</span>
+</span><span class='line'><span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span>
+</span><span class='line'><span class="nv">asides/category_list.html</span><span class="p-Indicator">,</span>
+</span><span class='line'><span class="nv">asides/github.html</span>
+</span><span class='line'><span class="nv">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">&lt;p&gt;</span><span class="p-Indicator">]</span><span class="l-Scalar-Plain">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;h1&gt;post_asides:&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;h1&gt;page_asides:&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;h1&gt;&amp;hellip;&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[selecting the navbar menu]]></title>

@@ -8,9 +8,21 @@
   <meta name="author" content="kAworu">
 
   
-  <meta name="description" content="Bootstrap navbar can have a
-&ldquo;selected&rdquo; element which ease navigation. In Octostrap3 it is possible to
-control which menu is selected on &hellip;">
+  <meta name="description" content="Here is the code for the awesome category list you can side in the aside. (category_list.html) download 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+&lt;section &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -38,7 +50,9 @@ control which menu is selected on &hellip;">
   <body   >
     <div id="wrap">
       <header role="banner">
-        <a style="z-index: 1001" href="https://github.com/kAworu/octostrap3.git"><img style="z-index: 1001; position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+        <a id="fork-me-on-github" href="https://github.com/kAworu/octostrap3.git">
+  <img class="gh-ribbon" src="/octopress/images/forkme_right_blue_3276b1.png" alt="Fork me on GitHub">
+</a>
 
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
@@ -73,7 +87,8 @@ control which menu is selected on &hellip;">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a class="subscribe-rss" href="/octopress/atom.xml" title="subscribe via RSS">
-                        <img src="/octopress/images/rss.png" alt="RSS">
+                        <span class="visible-xs">RSS</span>
+                        <img class="hidden-xs" src="/octopress/images/rss.png" alt="RSS">
                     </a>
                 </li>
                 
@@ -95,9 +110,127 @@ control which menu is selected on &hellip;">
       <div id="main" class="container">
         <div id="content">
           <div class="row">
-  <div class="col-md-9">
+  <div class="page-content col-md-9">
     <div class="blog-index">
       
+      
+      
+        <article class="post">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-03T23:27:00+02:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2013</time>
+        
+           | <a href="/octopress/blog/2013/10/03/category-list-aside/#disqus_thread"
+             data-disqus-identifier="http://kAworu.github.io/octopress/blog/2013/10/03/category-list-aside/">Comments</a>
+        
+      </p>
+    
+    
+      <h1 class="entry-title"><a href="/octopress/blog/2013/10/03/category-list-aside/">Category List Aside</a></h1>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Here is the code for the awesome category list you can side in the <code>aside</code>.</p>
+
+<figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'> (category_list.html)</h3> <a href='/octopress/downloads/code/category_list.html'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">&quot;panel-title&quot;</span><span class="nt">&gt;</span>Categories<span class="nt">&lt;/h3&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;list-group&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">category</span> <span class="k">in</span> <span class="nv">site.categories</span> <span class="cp">%}</span>
+</span><span class='line'>    <span class="cp">{%</span> <span class="k">capture</span> <span class="nv">category_url</span> <span class="cp">%}{{</span> <span class="nv">site.category_dir</span> <span class="cp">}}</span>/<span class="cp">{{</span> <span class="nv">category</span> <span class="o">|</span> <span class="nf">first</span> <span class="o">|</span> <span class="nf">slugize</span> <span class="o">|</span> <span class="nf">downcase</span> <span class="o">|</span> <span class="nf">replace</span><span class="s1">:&#39; &#39;</span><span class="o">,</span><span class="s1">&#39;-&#39;</span> <span class="o">|</span> <span class="nf">append</span><span class="s1">:&#39;/index.html&#39;</span><span class="cp">}}{%</span> <span class="k">endcapture</span> <span class="cp">%}</span>
+</span><span class='line'>    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;list-group-item </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">category_url</span> <span class="o">==</span> <span class="nv">page.url</span> <span class="cp">%}</span><span class="s">active</span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="s">&quot;</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">root_url</span> <span class="o">|</span> <span class="nf">append</span><span class="s1">:&#39;/&#39;</span> <span class="o">|</span> <span class="nf">append</span><span class="o">:</span><span class="nv">category_url</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;badge&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">category</span> <span class="o">|</span> <span class="nf">last</span> <span class="o">|</span> <span class="nf">size</span> <span class="cp">}}</span><span class="nt">&lt;/span&gt;</span>
+</span><span class='line'>        <span class="cp">{{</span> <span class="nv">category</span> <span class="o">|</span> <span class="nf">first</span> <span class="cp">}}</span>
+</span><span class='line'>      <span class="nt">&lt;/a&gt;</span>
+</span><span class='line'>    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</span><span class='line'>  <span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;/section&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Put it in the <code>source/_includes/asides</code> directory and then adapt your
+<code>_config.yml</code> accordingly. As example, here is how it is done on this site:</p>
+
+<figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'>_config.yml </h3></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="c1"># ...</span>
+</span><span class='line'><span class="c1"># list each of the sidebar modules you want to include, in the order you want them to appear.</span>
+</span><span class='line'><span class="c1"># To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like &#39;custom/asides/custom_aside_name.html&#39;</span>
+</span><span class='line'><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span>
+</span><span class='line'>    <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span>
+</span><span class='line'>    <span class="nv">asides/category_list.html</span>
+</span><span class='line'><span class="p-Indicator">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below</span>
+</span><span class='line'><span class="c1"># and add an array with the asides you want to use.</span>
+</span><span class='line'><span class="l-Scalar-Plain">blog_index_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span>
+</span><span class='line'>    <span class="nv">asides/what_is_octostrap3.html</span><span class="p-Indicator">,</span>
+</span><span class='line'>    <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span>
+</span><span class='line'>    <span class="nv">asides/category_list.html</span><span class="p-Indicator">,</span>
+</span><span class='line'>    <span class="nv">asides/github.html</span>
+</span><span class='line'><span class="p-Indicator">]</span>
+</span><span class='line'><span class="c1"># post_asides:</span>
+</span><span class='line'><span class="c1"># page_asides:</span>
+</span><span class='line'><span class="c1"># ...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+        </article>
       
       
         <article class="post">
@@ -212,22 +345,25 @@ control which menu is selected on each page or post.</p>
   
     <aside class="sidebar col-md-3">
       
-        <section class="panel panel-info">
+        <section id="what-is-octostrap3" class="panel panel-default clearfix">
   <div class="panel-heading">
     <h3 class="panel-title">
       What is Octostrap3 ?
       <span class="pull-right glyphicon glyphicon-info-sign"></span> 
     </h3>
   </div>
+  <img class="octostrap3-logo" src="/octopress/images/octostrap3-logo.png">
   <div class="panel-body">
-      <strong>Octostrap3 is a
-      <a href="http://getbootstrap.com/">Bootstrap 3</a> theme for
-      <a href="http://octopress.org">Octopress</a>.</strong><br>
+      <strong>
+        A theme for
+        <a href="http://octopress.org">Octopress</a> based on
+        <a href="http://getbootstrap.com/">Twitter Bootstrap 3</a>.
+      </strong><br>
       <p>
-        Its goal is to provide an easy way to use themes created for Bootstrap
-        with Octopress.
+          Easily use any awesome Bootstrap themes in your Blog ! The setup will
+          guide you from the installation to the theme selection or creation,
       </p>
-      <a class="pull-right btn btn-primary" href="/octopress/setup/install">get started →</a>
+      <a class="pull-right btn btn-default" href="/octopress/setup/install">get started !</a>
   </div>
 </section>
 <section class="panel panel-default">
@@ -237,9 +373,25 @@ control which menu is selected on each page or post.</p>
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/octopress/blog/2013/10/03/category-list-aside/">Category List Aside</a>
+    
     <a class="list-group-item " href="/octopress/blog/2013/10/02/selecting-the-navbar-menu/">Selecting the Navbar Menu</a>
     
     <a class="list-group-item " href="/octopress/blog/2013/10/02/pick-a-theme-for-only-one-page/">Pick a Theme for Only One Page</a>
+    
+  </div>
+</section>
+<section class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Categories</h3>
+  </div>
+  <div class="list-group">
+    
+    
+    <a class="list-group-item " href="/octopress/blog/categories/octopress/index.html">
+        <span class="badge">3</span>
+        octopress
+      </a>
     
   </div>
 </section>
@@ -309,7 +461,7 @@ control which menu is selected on each page or post.</p>
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      dsq.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 </script>
