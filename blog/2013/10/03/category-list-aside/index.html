@@ -8,21 +8,8 @@
   <meta name="author" content="kAworu">
 
   
-  <meta name="description" content="Here is the code for the awesome category list you can side in the aside. (category_list.html) download 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-&lt;section &hellip;">
+  <meta name="description" content="The code for the awesome category list you can see in the aside
+here. jQuery(document).ready(function ($) { $('#category-list-pointer').click( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -147,7 +134,40 @@
   </header>
 
 
-<div class="entry-content"><p>Here is the code for the awesome category list you can side in the <code>aside</code>.</p>
+<div class="entry-content"><p>The code for the awesome category list you can see in the <code>aside</code>
+<a href="#" id="category-list-pointer">here</a>.</p>
+
+<script>
+jQuery(document).ready(function ($) {
+    $('#category-list-pointer').click(function (event) {
+        event.preventDefault(); // don't follow href
+        // XXX: ugly, should have an id.
+        var $target = $('h3.panel-title:contains(Categories)').closest('.panel');
+        $target.css({opacity: 0}).animate({opacity: 1}, 700);
+    });
+});
+</script>
+
+
+<p>It will:</p>
+
+<ul>
+<li>display <em>all</em> your categories with a post counter (using Bootstrap&rsquo;s <code>badge</code>
+class)</li>
+<li>highlight when you&rsquo;re on the matching category page</li>
+<li>be installed in 3 minutes !</li>
+</ul>
+
+
+<!-- more -->
+
+
+
+
+<h2>The Trick</h2>
+
+
+<p>OK, here it is:</p>
 
 <figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'> (category_list.html)</h3> <a href='/octopress/downloads/code/category_list.html'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -181,7 +201,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Put it in the <code>source/_includes/asides</code> directory and then adapt your
+<p>Put it in the <code>source/_includes/custom/asides</code> directory and then adapt your
 <code>_config.yml</code> accordingly. As example, here is how it is done on this site:</p>
 
 <figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'>_config.yml </h3></figcaption>
@@ -209,7 +229,7 @@
 </span><span class='line'><span class="c1"># To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like &#39;custom/asides/custom_aside_name.html&#39;</span>
 </span><span class='line'><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span>
 </span><span class='line'>    <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span>
-</span><span class='line'>    <span class="nv">asides/category_list.html</span>
+</span><span class='line'>    <span class="nv">custom/asides/category_list.html</span>
 </span><span class='line'><span class="p-Indicator">]</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below</span>
@@ -217,7 +237,7 @@
 </span><span class='line'><span class="l-Scalar-Plain">blog_index_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span>
 </span><span class='line'>    <span class="nv">asides/what_is_octostrap3.html</span><span class="p-Indicator">,</span>
 </span><span class='line'>    <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span>
-</span><span class='line'>    <span class="nv">asides/category_list.html</span><span class="p-Indicator">,</span>
+</span><span class='line'>    <span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span>
 </span><span class='line'>    <span class="nv">asides/github.html</span>
 </span><span class='line'><span class="p-Indicator">]</span>
 </span><span class='line'><span class="c1"># post_asides:</span>
