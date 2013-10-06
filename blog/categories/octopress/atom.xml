@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Octostrap3 demo]]></title>
   <link href="http://kAworu.github.io/octopress/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://kAworu.github.io/octopress/"/>
-  <updated>2013-10-06T16:27:27+02:00</updated>
+  <updated>2013-10-06T17:07:12+02:00</updated>
   <id>http://kAworu.github.io/octopress/</id>
   <author>
     <name><![CDATA[kAworu]]></name>
@@ -271,7 +271,7 @@ pages or even posts if you want).  This example is from the
 
 <p>As you can see on this page, it is possible to have a different theme for a
 given page or post (this one is the mighty
-<a href="http://bootswatch.com/flatly/bootstrap.min.css">flatty</a>) !</p>
+<a href="http://bootswatch.com/flatly/bootstrap.min.css">flatty</a>)&nbsp;!</p>
 
 <!-- more -->
 
