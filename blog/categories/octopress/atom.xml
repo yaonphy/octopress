@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Octostrap3 demo]]></title>
   <link href="http://kAworu.github.io/octopress/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://kAworu.github.io/octopress/"/>
-  <updated>2013-10-04T16:12:06+02:00</updated>
+  <updated>2013-10-07T09:32:38+02:00</updated>
   <id>http://kAworu.github.io/octopress/</id>
   <author>
     <name><![CDATA[kAworu]]></name>
@@ -18,13 +18,26 @@
     <link href="http://kAworu.github.io/octopress/blog/2013/10/03/category-list-aside/"/>
     <updated>2013-10-03T23:27:00+02:00</updated>
     <id>http://kAworu.github.io/octopress/blog/2013/10/03/category-list-aside</id>
-    <content type="html"><![CDATA[<p>The code for the awesome category list you can see in the <code>aside</code> right
-<span class="pull-right">here →</span></p>
+    <content type="html"><![CDATA[<p>The code for the awesome category list you can see in the <code>aside</code>
+<a href="#" id="category-list-pointer">here</a>.</p>
+
+<script>
+jQuery(document).ready(function ($) {
+    $('#category-list-pointer').click(function (event) {
+        event.preventDefault(); // don't follow href
+        // XXX: ugly, should have an id.
+        var $target = $('h3.panel-title:contains(Categories)').closest('.panel');
+        $target.css({opacity: 0}).animate({opacity: 1}, 700);
+    });
+});
+</script>
+
 
 <p>It will:</p>
 
 <ul>
-<li>display <em>all</em> your categories with a post counter (using the <code>badge</code> class)</li>
+<li>display <em>all</em> your categories with a post counter (using Bootstrap&rsquo;s <code>badge</code>
+class)</li>
 <li>highlight when you&rsquo;re on the matching category page</li>
 <li>be installed in 3 minutes !</li>
 </ul>
@@ -38,7 +51,7 @@
 <h2>The Trick</h2>
 
 
-<p>OK, here is the code:</p>
+<p>OK, here it is:</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'> (category_list.html)</h3> <a href='/downloads/code/category_list.html'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -158,9 +171,9 @@
     <link href="http://kAworu.github.io/octopress/blog/2013/10/02/selecting-the-navbar-menu/"/>
     <updated>2013-10-02T23:43:00+02:00</updated>
     <id>http://kAworu.github.io/octopress/blog/2013/10/02/selecting-the-navbar-menu</id>
-    <content type="html"><![CDATA[<p>Bootstrap <a href="http://getbootstrap.com/components/#navbar">navbar</a> can have a
-&ldquo;selected&rdquo; element which ease navigation. In <strong>Octostrap3</strong> it is possible to
-control which menu is selected on each page or post.</p>
+    <content type="html"><![CDATA[<p>Bootstrap <a href="http://getbootstrap.com/components/#navbar">navbar</a> can have an
+&ldquo;active&rdquo; element highlighted which ease navigation. In <strong>Octostrap3</strong> it is
+possible to control which menu is selected on each page or post.</p>
 
 <!-- more -->
 
@@ -170,7 +183,7 @@ control which menu is selected on each page or post.</p>
 <h2>The Trick</h2>
 
 
-<p>We will use again a
+<p>We will use (again) a
 <a href="http://jekyllrb.com/docs/frontmatter/">front-matter variable</a>. If you check in
 <code>source/_includes/custom/navigation.html</code> the menu looks like this:
 <div class='bogus-wrapper'><notextile><figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'>source/_includes/custom/navigation.html </h3></figcaption>
@@ -250,14 +263,19 @@ pages or even posts if you want).  This example is from the
     <id>http://kAworu.github.io/octopress/blog/2013/10/02/pick-a-theme-for-only-one-page</id>
     <content type="html"><![CDATA[<div data-hide-me="one-page-theme-pick" class="alert alert-info">
     <p>
+      <span class="glyphicon glyphicon-info-sign"></span>
       The magic will only happen when you read the post :)
     </p>
 </div>
 
 
-
+<p>As you can see on this page, it is possible to have a different theme for a
+given page or post (this one is the mighty
+<a href="http://bootswatch.com/flatly/bootstrap.min.css">flatty</a>)&nbsp;!</p>
 
 <!-- more -->
+
+
 
 
 <script>
@@ -267,9 +285,7 @@ pages or even posts if you want).  This example is from the
 </script>
 
 
-<p>As you can see on this page, it is possible to have a different theme for a
-given page or post (this one is the mighty
-<a href="http://bootswatch.com/flatly/bootstrap.min.css">flatty</a>) !</p>
+
 
 <h2>The Trick</h2>
 
@@ -285,19 +301,13 @@ select the theme to use. First, adapt <code>source/_includes/custom/head.html</c
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
 </pre></td><td class='code'><pre><code class='html'><span class='line'>{% if page.bootstrap_theme_url %}
 </span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ page.bootstrap_theme_url }}&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
 </span><span class='line'>{% else %}
 </span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>{% endif %}<span class="nt">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c">&lt;!-- &lt;link href=&quot;{{ root_url }}/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt; --&gt;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/stylesheets/screen.css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen, projection&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>{% endif %}
+</span><span class='line'><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/stylesheets/screen.css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen, projection&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Now, the Bootstrap theme will be choosen depending on

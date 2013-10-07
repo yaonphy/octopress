@@ -8,7 +8,6 @@
   <meta name="author" content="kAworu">
 
   
-  <meta name="description" content="The magic will only happen when you read the post :) jQuery(document).ready(function ($) { $('[data-hide-me="one-page-theme-pick"]').hide(); }); As &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,7 +23,6 @@
   
   <link href="http://bootswatch.com/flatly/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-<!-- <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"> -->
 <link href="/octopress/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
 
@@ -114,10 +112,11 @@
 
 
 
-  
 
 
-<time datetime="2013-10-02T23:19:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-10-02T23:19:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://kAworu.github.io/octopress">Comments</a>
@@ -133,16 +132,21 @@
   </header>
 
 
-<div class="entry-content"><div data-hide-me="one-page-theme-pick" class="alert alert-info">
+<div class="entry-content clearfix"><div data-hide-me="one-page-theme-pick" class="alert alert-info">
     <p>
+      <span class="glyphicon glyphicon-info-sign"></span>
       The magic will only happen when you read the post :)
     </p>
 </div>
 
 
-
+<p>As you can see on this page, it is possible to have a different theme for a
+given page or post (this one is the mighty
+<a href="http://bootswatch.com/flatly/bootstrap.min.css">flatty</a>)&nbsp;!</p>
 
 <!-- more -->
+
+
 
 
 <script>
@@ -152,9 +156,7 @@
 </script>
 
 
-<p>As you can see on this page, it is possible to have a different theme for a
-given page or post (this one is the mighty
-<a href="http://bootswatch.com/flatly/bootstrap.min.css">flatty</a>) !</p>
+
 
 <h2>The Trick</h2>
 
@@ -174,8 +176,8 @@ select the theme to use. First, adapt <code>source/_includes/custom/head.html</c
 </span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ page.bootstrap_theme_url }}&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
 </span><span class='line'>{% else %}
 </span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
 </span><span class='line'>{% endif %}
-</span><span class='line'><span class="c">&lt;!-- &lt;link href=&quot;{{ root_url }}/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt; --&gt;</span>
 </span><span class='line'><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/stylesheets/screen.css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen, projection&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -209,7 +211,7 @@ select the theme to use. First, adapt <code>source/_includes/custom/head.html</c
           
   
 
-<span class="byline author vcard">Posted by <span class="fn">kAworu</span></span>
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">kAworu</span></span>
 
           
 
@@ -220,12 +222,14 @@ select the theme to use. First, adapt <code>source/_includes/custom/head.html</c
 
 
 
-  
 
 
-<time datetime="2013-10-02T23:19:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-10-02T23:19:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
           
 
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
     <a class='category label label-primary' href='/octopress/blog/categories/octopress/'>octopress</a>

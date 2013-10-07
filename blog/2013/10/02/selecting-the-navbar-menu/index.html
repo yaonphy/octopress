@@ -8,9 +8,6 @@
   <meta name="author" content="kAworu">
 
   
-  <meta name="description" content="Bootstrap navbar can have a
-&ldquo;selected&rdquo; element which ease navigation. In Octostrap3 it is possible to
-control which menu is selected on &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,8 +22,8 @@ control which menu is selected on &hellip;">
 
   
   <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 
-<!-- <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"> -->
 <link href="/octopress/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
 
@@ -116,10 +113,11 @@ control which menu is selected on &hellip;">
 
 
 
-  
 
 
-<time datetime="2013-10-02T23:43:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-10-02T23:43:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://kAworu.github.io/octopress">Comments</a>
@@ -135,9 +133,9 @@ control which menu is selected on &hellip;">
   </header>
 
 
-<div class="entry-content"><p>Bootstrap <a href="http://getbootstrap.com/components/#navbar">navbar</a> can have a
-&ldquo;selected&rdquo; element which ease navigation. In <strong>Octostrap3</strong> it is possible to
-control which menu is selected on each page or post.</p>
+<div class="entry-content clearfix"><p>Bootstrap <a href="http://getbootstrap.com/components/#navbar">navbar</a> can have an
+&ldquo;active&rdquo; element highlighted which ease navigation. In <strong>Octostrap3</strong> it is
+possible to control which menu is selected on each page or post.</p>
 
 <!-- more -->
 
@@ -147,7 +145,7 @@ control which menu is selected on each page or post.</p>
 <h2>The Trick</h2>
 
 
-<p>We will use again a
+<p>We will use (again) a
 <a href="http://jekyllrb.com/docs/frontmatter/">front-matter variable</a>. If you check in
 <code>source/_includes/custom/navigation.html</code> the menu looks like this:</p>
 
@@ -208,7 +206,7 @@ pages or even posts if you want).  This example is from the
           
   
 
-<span class="byline author vcard">Posted by <span class="fn">kAworu</span></span>
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">kAworu</span></span>
 
           
 
@@ -219,12 +217,14 @@ pages or even posts if you want).  This example is from the
 
 
 
-  
 
 
-<time datetime="2013-10-02T23:43:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-10-02T23:43:00+02:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2013</time>
           
 
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
     <a class='category label label-primary' href='/octopress/blog/categories/octopress/'>octopress</a>

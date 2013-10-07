@@ -8,8 +8,6 @@
   <meta name="author" content="kAworu">
 
   
-  <meta name="description" content="The code for the awesome category list you can see in the aside right
-here → It will: display all your categories with a post counter (using the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,8 +22,8 @@ here → It will: display all your categories with a post counter (using the &he
 
   
   <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 
-<!-- <link href="/octopress/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"> -->
 <link href="/octopress/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 
 
@@ -115,10 +113,11 @@ here → It will: display all your categories with a post counter (using the &he
 
 
 
-  
 
 
-<time datetime="2013-10-03T23:27:00+02:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2013</time>
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-10-03T23:27:00+02:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2013</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://kAworu.github.io/octopress">Comments</a>
@@ -134,13 +133,26 @@ here → It will: display all your categories with a post counter (using the &he
   </header>
 
 
-<div class="entry-content"><p>The code for the awesome category list you can see in the <code>aside</code> right
-<span class="pull-right">here →</span></p>
+<div class="entry-content clearfix"><p>The code for the awesome category list you can see in the <code>aside</code>
+<a href="#" id="category-list-pointer">here</a>.</p>
+
+<script>
+jQuery(document).ready(function ($) {
+    $('#category-list-pointer').click(function (event) {
+        event.preventDefault(); // don't follow href
+        // XXX: ugly, should have an id.
+        var $target = $('h3.panel-title:contains(Categories)').closest('.panel');
+        $target.css({opacity: 0}).animate({opacity: 1}, 700);
+    });
+});
+</script>
+
 
 <p>It will:</p>
 
 <ul>
-<li>display <em>all</em> your categories with a post counter (using the <code>badge</code> class)</li>
+<li>display <em>all</em> your categories with a post counter (using Bootstrap&rsquo;s <code>badge</code>
+class)</li>
 <li>highlight when you&rsquo;re on the matching category page</li>
 <li>be installed in 3 minutes !</li>
 </ul>
@@ -154,7 +166,7 @@ here → It will: display all your categories with a post counter (using the &he
 <h2>The Trick</h2>
 
 
-<p>OK, here is the code:</p>
+<p>OK, here it is:</p>
 
 <figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'> (category_list.html)</h3> <a href='/octopress/downloads/code/category_list.html'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -242,7 +254,7 @@ here → It will: display all your categories with a post counter (using the &he
           
   
 
-<span class="byline author vcard">Posted by <span class="fn">kAworu</span></span>
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard">Posted by <span class="fn">kAworu</span></span>
 
           
 
@@ -253,12 +265,14 @@ here → It will: display all your categories with a post counter (using the &he
 
 
 
-  
 
 
-<time datetime="2013-10-03T23:27:00+02:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2013</time>
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-10-03T23:27:00+02:00" pubdate data-updated="true">Oct 3<span>rd</span>, 2013</time>
           
 
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
     <a class='category label label-primary' href='/octopress/blog/categories/octopress/'>octopress</a>
