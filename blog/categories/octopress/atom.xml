@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | Octostrap3 demo]]></title>
   <link href="http://kAworu.github.io/octopress/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://kAworu.github.io/octopress/"/>
-  <updated>2013-10-07T16:26:35+02:00</updated>
+  <updated>2013-11-06T17:31:30+01:00</updated>
   <id>http://kAworu.github.io/octopress/</id>
   <author>
     <name><![CDATA[kAworu]]></name>
@@ -304,8 +304,8 @@ select the theme to use. First, adapt <code>source/_includes/custom/head.html</c
 </pre></td><td class='code'><pre><code class='html'><span class='line'>{% if page.bootstrap_theme_url %}
 </span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ page.bootstrap_theme_url }}&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
 </span><span class='line'>{% else %}
-</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/javascripts/libs/bootstrap-3.0.0/dist/css/bootstrap-theme.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/assets/bootstrap/dist/css/bootstrap.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/assets/bootstrap/dist/css/bootstrap-theme.min.css&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
 </span><span class='line'>{% endif %}
 </span><span class='line'><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&quot;{{ root_url }}/stylesheets/screen.css&quot;</span> <span class="na">media=</span><span class="s">&quot;screen, projection&quot;</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type=</span><span class="s">&quot;text/css&quot;</span><span class="nt">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
