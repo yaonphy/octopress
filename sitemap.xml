@@ -15,12 +15,16 @@
         <lastmod>2013-10-06T17:06:39+02:00</lastmod>
     </url>
     <url>
+        <loc>http://kAworu.github.io/octopress/blog/2013/11/23/github-page/</loc>
+        <lastmod>2013-11-23T14:54:29+01:00</lastmod>
+    </url>
+    <url>
         <loc>http://kAworu.github.io/octopress/</loc>
-        <lastmod>2013-11-19T20:00:50+01:00</lastmod>
+        <lastmod>2013-11-23T14:54:29+01:00</lastmod>
     </url>
     <url>
         <loc>http://kAworu.github.io/octopress/blog/archives/</loc>
-        <lastmod>2013-11-19T20:00:50+01:00</lastmod>
+        <lastmod>2013-11-23T14:54:29+01:00</lastmod>
     </url>
     <url>
         <loc>http://kAworu.github.io/octopress/about/</loc>
@@ -48,7 +52,7 @@
     </url>
     <url>
         <loc>http://kAworu.github.io/octopress/assets/bootstrap/</loc>
-        <lastmod>2013-11-19T20:00:50+01:00</lastmod>
+        <lastmod>2013-11-23T14:54:29+01:00</lastmod>
     </url>
     <url>
         <loc>http://kAworu.github.io/octopress/assets/bootstrap/css.html</loc>
@@ -72,6 +76,6 @@
     </url>
     <url>
         <loc>http://kAworu.github.io/octopress/github-page-example/</loc>
-        <lastmod>2013-11-19T23:50:49+01:00</lastmod>
+        <lastmod>2013-11-23T14:54:29+01:00</lastmod>
     </url>
 </urlset>
