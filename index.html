@@ -123,6 +123,94 @@
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-02-03T16:47:32+01:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2014</time>
+        
+           | <a href="/octopress/blog/2014/02/03/octostrap-3-dot-1-is-out/#disqus_thread"
+             data-disqus-identifier="http://kAworu.github.io/octopress/blog/2014/02/03/octostrap-3-dot-1-is-out/">Comments</a>
+        
+      </p>
+    
+    
+      <h1 class="entry-title"><a href="/octopress/blog/2014/02/03/octostrap-3-dot-1-is-out/">Octostrap 3.1 Is Out</a></h1>
+    
+  </header>
+
+
+  <div class="entry-content clearfix"><p><strong>Twitter Bootstrap 3.1</strong> has been released just a few days ago. This new
+version brings improvements in every areas from documentation and examples to
+build process and <a href="http://sass-lang.com/">SASS</a> support. It&rsquo;s also the first release under the MIT
+License which will allow GPL&#8217;ed projects (like <a href="https://drupal.org/">Drupal</a>) to include
+Bootstrap. As always the release is welcomed by an awesome video, so you better
+<a href="http://blog.getbootstrap.com/2014/01/30/bootstrap-3-1-0-released/">check it out</a>.</p>
+
+<p>To celebrate this release, <strong>Octostrap3</strong> has been updated. It include now
+Bootstrap 3.1, the patches provided in the setup have been updated for the
+latest <strong>Octopress</strong> version and gist integration has been improved. Here is a
+preview of what gist should look like now:</p>
+
+<div><script src='https://gist.github.com/8471788.js'></script>
+<noscript><pre><code>From 59318158e58c0414ead9238126d2a7743a67e29e Mon Sep 17 00:00:00 2001
+From: Alexandre Perrin &lt;alex@kaworu.ch&gt;
+Date: Fri, 17 Jan 2014 12:06:41 +0100
+Subject: [PATCH] make_inet_socket(): Use SO_NOSIGPIPE when creating a client
+ socket.
+
+  We have to check for error when sending anyway, so we'll check for
+  EPIPE.
+
+  Before this patch `rspamc stat` fail when it cannot connect to the
+  controller: it dies to SIGPIPE because the socket is fcntl O_NONBLOCK
+  and we ignore when connect(2) says EINPROGRESS.
+---
+ src/util.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/util.c b/src/util.c
+index 4a88bb1..8f5fdc1 100644
+--- a/src/util.c
++++ b/src/util.c
+@@ -124,6 +124,8 @@ make_inet_socket (gint type, struct addrinfo *addr, gboolean is_server, gboolean
+            r = bind (fd, cur-&gt;ai_addr, cur-&gt;ai_addrlen);
+        }
+        else {
++           /* we will check for EPIPE when sending data */
++           setsockopt (fd, SOL_SOCKET, SO_NOSIGPIPE, (const void *)&amp;on, sizeof (gint));
+            r = connect (fd, cur-&gt;ai_addr, cur-&gt;ai_addrlen);
+        }
+ 
+-- 
+1.8.5.2
+
+</code></pre></noscript></div>
+
+
+<p>Enjoy !</p>
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2013-11-23T14:39:00+01:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2013</time>
         
            | <a href="/octopress/blog/2013/11/23/github-page/#disqus_thread"
@@ -371,13 +459,13 @@ given page or post (this one is the mighty
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/octopress/blog/2014/02/03/octostrap-3-dot-1-is-out/">Octostrap 3.1 Is Out</a>
+    
     <a class="list-group-item " href="/octopress/blog/2013/11/23/github-page/">GitHub Page</a>
     
     <a class="list-group-item " href="/octopress/blog/2013/10/03/category-list-aside/">Category List Aside</a>
     
     <a class="list-group-item " href="/octopress/blog/2013/10/02/selecting-the-navbar-menu/">Selecting the Navbar Menu</a>
-    
-    <a class="list-group-item " href="/octopress/blog/2013/10/02/pick-a-theme-for-only-one-page/">Pick a Theme for Only One Page</a>
     
   </div>
 </section>

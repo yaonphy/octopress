@@ -4,7 +4,7 @@
   <title><![CDATA[Octostrap3 demo]]></title>
   <link href="http://kAworu.github.io/octopress/atom.xml" rel="self"/>
   <link href="http://kAworu.github.io/octopress/"/>
-  <updated>2014-02-03T16:36:32+01:00</updated>
+  <updated>2014-02-03T18:10:41+01:00</updated>
   <id>http://kAworu.github.io/octopress/</id>
   <author>
     <name><![CDATA[kAworu]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[octostrap 3.1 is out]]></title>
+    <link href="http://kAworu.github.io/octopress/blog/2014/02/03/octostrap-3-dot-1-is-out/"/>
+    <updated>2014-02-03T16:47:32+01:00</updated>
+    <id>http://kAworu.github.io/octopress/blog/2014/02/03/octostrap-3-dot-1-is-out</id>
+    <content type="html"><![CDATA[<p><strong>Twitter Bootstrap 3.1</strong> has been released just a few days ago. This new
+version brings improvements in every areas from documentation and examples to
+build process and <a href="http://sass-lang.com/">SASS</a> support. It&rsquo;s also the first release under the MIT
+License which will allow GPL&#8217;ed projects (like <a href="https://drupal.org/">Drupal</a>) to include
+Bootstrap. As always the release is welcomed by an awesome video, so you better
+<a href="http://blog.getbootstrap.com/2014/01/30/bootstrap-3-1-0-released/">check it out</a>.</p>
+
+<p>To celebrate this release, <strong>Octostrap3</strong> has been updated. It include now
+Bootstrap 3.1, the patches provided in the setup have been updated for the
+latest <strong>Octopress</strong> version and gist integration has been improved. Here is a
+preview of what gist should look like now:</p>
+
+<div><script src='https://gist.github.com/8471788.js'></script>
+<noscript><pre><code>From 59318158e58c0414ead9238126d2a7743a67e29e Mon Sep 17 00:00:00 2001
+From: Alexandre Perrin &lt;alex@kaworu.ch&gt;
+Date: Fri, 17 Jan 2014 12:06:41 +0100
+Subject: [PATCH] make_inet_socket(): Use SO_NOSIGPIPE when creating a client
+ socket.
+
+  We have to check for error when sending anyway, so we'll check for
+  EPIPE.
+
+  Before this patch `rspamc stat` fail when it cannot connect to the
+  controller: it dies to SIGPIPE because the socket is fcntl O_NONBLOCK
+  and we ignore when connect(2) says EINPROGRESS.
+---
+ src/util.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/util.c b/src/util.c
+index 4a88bb1..8f5fdc1 100644
+--- a/src/util.c
++++ b/src/util.c
+@@ -124,6 +124,8 @@ make_inet_socket (gint type, struct addrinfo *addr, gboolean is_server, gboolean
+            r = bind (fd, cur-&gt;ai_addr, cur-&gt;ai_addrlen);
+        }
+        else {
++           /* we will check for EPIPE when sending data */
++           setsockopt (fd, SOL_SOCKET, SO_NOSIGPIPE, (const void *)&amp;on, sizeof (gint));
+            r = connect (fd, cur-&gt;ai_addr, cur-&gt;ai_addrlen);
+        }
+ 
+-- 
+1.8.5.2
+
+</code></pre></noscript></div>
+
+
+<p>Enjoy !</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[GitHub page]]></title>
