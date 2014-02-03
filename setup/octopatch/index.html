@@ -145,8 +145,8 @@ theme.</p>
     <p>
       <span class="glyphicon glyphicon-info-sign"></span>
       Theses patches were tested against the latest version of Octopress
-      master&#8217;s branch at the time of writting:<br>
-      commit <strong>4cc76820331b2b327c03d27216e79bc55a58c505</strong>
+      master&#8217;s branch at the time of writting (03 Feb 2014):<br>
+      commit <strong>fe6ef744ede363688e8538ac091519e00c30487c</strong>
     </p>
 </div>
 
@@ -159,9 +159,9 @@ theme.</p>
 <p>Both the <code>codeblock</code> and <code>include_code</code> liquid tags have been styled in this
 theme so their header looks a lot like Bootstrap&rsquo;s
 <a href="http://getbootstrap.com/components/#panels">panels</a>. However, they don&rsquo;t
-actually output Bootstrap&rsquo;s classes. The default is fine as long as you&rsquo;re not
-going to change of Bootstrap theme. Here are the two versions (check the
-markup):</p>
+actually output Bootstrap&rsquo;s classes. The default is fine as long as you&rsquo;re using
+the default Bootstrap theme (as this blog) or no theme at all. Here are the two
+versions (check the markup):</p>
 
 <p>not patched:</p>
 
@@ -183,7 +183,7 @@ can be style by your theme.  Here are two patches, the first is for the
 <code>code_block</code> plugin and the second for the <code>include_code</code> plugin.</p>
 
 <figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'> (code-block-with-bs-panel.patch)</h3> <a href='/octopress/downloads/code/code-block-with-bs-panel.patch'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -210,7 +210,7 @@ can be style by your theme.  Here are two patches, the first is for the
 <span class='line-number'>25</span>
 <span class='line-number'>26</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'><span class="gh">diff --git a/plugins/code_block.rb b/plugins/code_block.rb</span>
-</span><span class='line'><span class="gh">index c70e181..29ad53a 100644</span>
+</span><span class='line'><span class="gh">index 46620d8..b510b9d 100644</span>
 </span><span class='line'><span class="gd">--- a/plugins/code_block.rb</span>
 </span><span class='line'><span class="gi">+++ b/plugins/code_block.rb</span>
 </span><span class='line'><span class="gu">@@ -62,10 +62,10 @@ module Jekyll</span>
@@ -234,12 +234,12 @@ can be style by your theme.  Here are two patches, the first is for the
 </span><span class='line'><span class="gi">+      source = &quot;&lt;figure class=&#39;code panel panel-default&#39;&gt;&quot;</span>
 </span><span class='line'>       source += @caption if @caption
 </span><span class='line'>       if @filetype
-</span><span class='line'>         source += &quot; #{highlight(code, @filetype)}&lt;/figure&gt;&quot;
+</span><span class='line'>         source += &quot;#{highlight(code, @filetype)}&lt;/figure&gt;&quot;
 </span></code></pre></td></tr></table></div></figure>
 
 
 <figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'> (include-code-with-bs-panel.patch)</h3> <a href='/octopress/downloads/code/include-code-with-bs-panel.patch'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -253,7 +253,7 @@ can be style by your theme.  Here are two patches, the first is for the
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'><span class="gh">diff --git a/plugins/include_code.rb b/plugins/include_code.rb</span>
-</span><span class='line'><span class="gh">index 220466b..cea125a 100644</span>
+</span><span class='line'><span class="gh">index 41f3033..8ef234e 100644</span>
 </span><span class='line'><span class="gd">--- a/plugins/include_code.rb</span>
 </span><span class='line'><span class="gi">+++ b/plugins/include_code.rb</span>
 </span><span class='line'><span class="gu">@@ -61,7 +61,7 @@ module Jekyll</span>
@@ -262,7 +262,7 @@ can be style by your theme.  Here are two patches, the first is for the
 </span><span class='line'>         url = &quot;/#{code_dir}/#{@file}&quot;
 </span><span class='line'><span class="gd">-        source = &quot;&lt;figure class=&#39;code&#39;&gt;&lt;figcaption&gt;&lt;span&gt;#{title}&lt;/span&gt; &lt;a href=&#39;#{url}&#39;&gt;download&lt;/a&gt;&lt;/figcaption&gt;\n&quot;</span>
 </span><span class='line'><span class="gi">+        source = &quot;&lt;figure class=&#39;code panel panel-default&#39;&gt;&lt;figcaption class=&#39;panel-heading&#39;&gt;&lt;h3 class=&#39;panel-title&#39;&gt;#{title}&lt;/h3&gt; &lt;a href=&#39;#{url}&#39;&gt;download&lt;/a&gt;&lt;/figcaption&gt;\n&quot;</span>
-</span><span class='line'>         source += &quot; #{highlight(code, @filetype)}&lt;/figure&gt;&quot;
+</span><span class='line'>         source += &quot;#{highlight(code, @filetype)}&lt;/figure&gt;&quot;
 </span><span class='line'>         safe_wrap(source)
 </span><span class='line'>       end
 </span></code></pre></td></tr></table></div></figure>
@@ -292,7 +292,7 @@ the job. The patch will turn them into this:</p>
 <p>And here it is:</p>
 
 <figure class='code panel panel-default'><figcaption class='panel-heading'><h3 class='panel-title'> (category-with-bs-label.patch)</h3> <a href='/octopress/downloads/code/category-with-bs-label.patch'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -315,7 +315,7 @@ the job. The patch will turn them into this:</p>
 <span class='line-number'>21</span>
 <span class='line-number'>22</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'><span class="gh">diff --git a/plugins/category_generator.rb b/plugins/category_generator.rb</span>
-</span><span class='line'><span class="gh">index a49c429..2028919 100644</span>
+</span><span class='line'><span class="gh">index c55d62f..5e7ead4 100644</span>
 </span><span class='line'><span class="gd">--- a/plugins/category_generator.rb</span>
 </span><span class='line'><span class="gi">+++ b/plugins/category_generator.rb</span>
 </span><span class='line'><span class="gu">@@ -161,7 +161,7 @@ ERR</span>
@@ -428,7 +428,7 @@ the job. The patch will turn them into this:</p>
     </div>
     <footer role="contentinfo"><div class="container">
     <p class="text-muted credits">
-  Copyright &copy; 2013 - <a href="https://kaworu.ch" title="kAworu's blog">kAworu</a><br>
+  Copyright &copy; 2014 - <a href="https://kaworu.ch" title="kAworu's blog">kAworu</a><br>
   <small>
       <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>,
       <span class="credit">customized with <a href="https://github.com/kAworu/octostrap3">octostrap3</a></span>.
