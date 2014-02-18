@@ -108,8 +108,13 @@
   <p>Plugins can be included individually (using Bootstrap&#8217;s individual <code>*.js</code> files), or all at once (using <code>bootstrap.js</code> or the minified <code>bootstrap.min.js</code>).</p>
 
   <div class="bs-callout bs-callout-danger">
-    <h4>Do not attempt to include both.</h4>
-    <p>Both <code>bootstrap.js</code> and <code>bootstrap.min.js</code> contain all plugins in a single file.</p>
+    <h4>Using the compiled JavaScript</h4>
+    <p>Both <code>bootstrap.js</code> and <code>bootstrap.min.js</code> contain all plugins in a single file. Include only one.</p>
+  </div>
+
+  <div class="bs-callout bs-callout-danger">
+    <h4>Component data attributes</h4>
+    <p>Don&#8217;t use data attributes from multiple plugins on the same element. For example, a button cannot both have a tooltip and toggle a modal. To accomplish this, use a wrapping element.</p>
   </div>
 
   <div class="bs-callout bs-callout-danger">
@@ -337,14 +342,14 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
   <h2 id="modals-sizes">Optional sizes</h2>
   <p>Modals have two optional sizes, available via modifier classes to be placed on a <code>.modal-dialog</code>.</p>
   <div class="bs-example">
-    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg">Large modal</button>
-    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-sm">Small modal</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+    <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
   </div>
 <div>
   <pre><code class='html'>&lt;!-- Large modal --&gt;
-&lt;button class=&quot;btn btn-primary&quot; data-toggle=&quot;modal&quot; data-target=&quot;.bs-modal-lg&quot;&gt;Large modal&lt;/button&gt;
+&lt;button class=&quot;btn btn-primary&quot; data-toggle=&quot;modal&quot; data-target=&quot;.bs-example-modal-lg&quot;&gt;Large modal&lt;/button&gt;
 
-&lt;div class=&quot;modal fade bs-modal-lg&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myLargeModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;div class=&quot;modal fade bs-example-modal-lg&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myLargeModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
   &lt;div class=&quot;modal-dialog modal-lg&quot;&gt;
     &lt;div class=&quot;modal-content&quot;&gt;
       ...
@@ -353,9 +358,9 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
 &lt;/div&gt;
 
 &lt;!-- Small modal --&gt;
-&lt;button class=&quot;btn btn-primary&quot; data-toggle=&quot;modal&quot; data-target=&quot;.bs-modal-sm&quot;&gt;Small modal&lt;/button&gt;
+&lt;button class=&quot;btn btn-primary&quot; data-toggle=&quot;modal&quot; data-target=&quot;.bs-example-modal-sm&quot;&gt;Small modal&lt;/button&gt;
 
-&lt;div class=&quot;modal fade bs-modal-sm&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;mySmallModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;div class=&quot;modal fade bs-example-modal-sm&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;mySmallModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
   &lt;div class=&quot;modal-dialog modal-sm&quot;&gt;
     &lt;div class=&quot;modal-content&quot;&gt;
       ...
@@ -366,7 +371,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
 
 
   <!--  Modal content for the above example -->
-  <div class="modal fade bs-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
 
@@ -380,7 +385,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-  <div class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
 
@@ -448,7 +453,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
          <td>remote</td>
          <td>path</td>
          <td>false</td>
-         <td><p>If a remote URL is provided, <strong>content will be loaded one time</strong> via jQuery&#8217;s <code>load</code> method and injected into the root of the modal element. If you&#8217;re using the data-api, you may alternatively use the <code>href</code> attribute to specify the remote source. An example of this is shown below:</p>
+         <td><p>If a remote URL is provided, <strong>content will be loaded one time</strong> via jQuery&#8217;s <code>load</code> method and injected into the <code>.modal-content</code> div. If you&#8217;re using the data-api, you may alternatively use the <code>href</code> attribute to specify the remote source. An example of this is shown below:</p>
 <div>
   <pre><code class='html'>&lt;a data-toggle=&quot;modal&quot; href=&quot;remote.html&quot; data-target=&quot;#modal&quot;&gt;Click me&lt;/a&gt;</code></pre>
 </div>
@@ -548,7 +553,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
     <nav id="navbar-example" class="navbar navbar-default navbar-static" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-js-navbar-collapse">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -556,7 +561,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
           </button>
           <a class="navbar-brand" href="#">Project Name</a>
         </div>
-        <div class="collapse navbar-collapse bs-js-navbar-collapse">
+        <div class="collapse navbar-collapse bs-example-js-navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
               <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -669,6 +674,10 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
   <pre><code class='js'>$('.dropdown-toggle').dropdown()</code></pre>
 </div>
 
+  <div class="bs-callout bs-callout-info">
+    <h4><code>data-toggle="dropdown"</code> still required</h4>
+    <p>Regardless of whether you call your dropdown via JavaScript or instead use the data-api, <code>data-toggle="dropdown"</code> is always required to be present on the dropdown&#8217;s trigger element.</p>
+  </div>
 
   <h3>Options</h3>
   <p><em>None</em></p>
@@ -678,6 +687,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
   <p>Toggles the dropdown menu of a given navbar or tabbed navigation.</p>
 
   <h3>Events</h3>
+  <p>All dropdown events are fired at the <code>.dropdown-menu</code>&#8217;s parent element.</p>
   <div class="table-responsive">
     <table class="table table-bordered table-striped">
       <thead>
@@ -726,7 +736,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
     <nav id="navbar-example2" class="navbar navbar-default navbar-static" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-js-navbar-scrollspy">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-scrollspy">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -734,7 +744,7 @@ $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Boot
           </button>
           <a class="navbar-brand" href="#">Project Name</a>
         </div>
-        <div class="collapse navbar-collapse bs-js-navbar-scrollspy">
+        <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
           <ul class="nav navbar-nav">
             <li><a href="#fat">@fat</a></li>
             <li><a href="#mdo">@mdo</a></li>
@@ -1075,12 +1085,12 @@ $('#myTab li:eq(2) a').tab('show') // Select third tab (0-indexed)</code></pre>
   </div>
 <div>
   <pre><code class='html'>&lt;!-- HTML to write --&gt;
-&lt;a href=&quot;#&quot; data-toggle=&quot;tooltip&quot; title=&quot;first tooltip&quot;&gt;Hover over me&lt;/a&gt;
+&lt;a href=&quot;#&quot; data-toggle=&quot;tooltip&quot; title=&quot;Some tooltip text!&quot;&gt;Hover over me&lt;/a&gt;
 
 &lt;!-- Generated markup by the plugin --&gt;
 &lt;div class=&quot;tooltip top&quot;&gt;
   &lt;div class=&quot;tooltip-inner&quot;&gt;
-    Tooltip!
+    Some tooltip text!
   &lt;/div&gt;
   &lt;div class=&quot;tooltip-arrow&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -1609,10 +1619,10 @@ sagittis lacus vel augue laoreet rutrum faucibus.&quot;&gt;
 &lt;/button&gt;
 &lt;script&gt;
   $('#loading-example-btn').click(function () {
-    var btn = $(this);
-    btn.button('loading');
+    var btn = $(this)
+    btn.button('loading')
     $.ajax(...).always(function () {
-      btn.button('reset');
+      btn.button('reset')
     });
   });
 &lt;/script&gt;</code></pre>
@@ -1723,10 +1733,10 @@ sagittis lacus vel augue laoreet rutrum faucibus.&quot;&gt;
   <pre><code class='html'>&lt;button id=&quot;loading-example-btn&quot; type=&quot;button&quot; class=&quot;btn btn-primary&quot; data-loading-text=&quot;loading stuff...&quot;&gt;...&lt;/button&gt;
 &lt;script&gt;
   $('#loading-example-btn').click(function () {
-    var btn = $(this);
-    btn.button('loading');
+    var btn = $(this)
+    btn.button('loading')
     $.ajax(...).always(function () {
-      btn.button('reset');
+      btn.button('reset')
     });
   });
 &lt;/script&gt;</code></pre>
@@ -2257,11 +2267,11 @@ sagittis lacus vel augue laoreet rutrum faucibus.&quot;&gt;
   <h3>Via JavaScript</h3>
   <p>Call the affix plugin via JavaScript:</p>
 <div>
-  <pre><code class='js'>$('#myAffix').affix({
+  <pre><code class='js'>$('#my-affix').affix({
     offset: {
       top: 100
     , bottom: function () {
-        return (this.bottom = $('.bs-footer').outerHeight(true))
+        return (this.bottom = $('.footer').outerHeight(true))
       }
     }
   })</code></pre>
